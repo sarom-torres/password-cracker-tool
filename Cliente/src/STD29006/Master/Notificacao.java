@@ -5,7 +5,12 @@ import java.rmi.RemoteException;
 public class Notificacao implements NotificacaoDistribuida  {
 
     @Override
-    public String Pronto() throws RemoteException {
+    public String pronto() throws RemoteException {
         return null;
+    }
+
+    @Override
+    public boolean online() throws RemoteException {
+        return false;
     }
 }

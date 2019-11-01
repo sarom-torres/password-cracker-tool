@@ -6,6 +6,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,15 +28,26 @@ public class Master {
             }
 
             System.out.println("Conectando no servidor " + nomeServidor);
+            //-------------------------------------------------------------------------
 
-            Registry registro = LocateRegistry.getRegistry(nomeServidor, porta);
+
+            //Criando o registro
+            System.setProperty("java.rmi.server.hostname", nomeServidor);
+            Registry registro = LocateRegistry.createRegistry(porta);
+
+            //TODO Sleep paliativo para execução
+            try { Thread.sleep (5000); } catch (InterruptedException ex) {};
+
+
+
+            //Vai pocurar por um servidor que não existe ainda
             TrabalhadorDistribuido Trabalhador1 = (TrabalhadorDistribuido) registro.lookup(NOMEOBJDIST);
 
-            //Status st1 = Trabalhador1.getStatus();
 
             System.out.println("O " + Trabalhador1.getNome() + " está " + Trabalhador1.getStatus().toString());
-
             System.out.println("End...");
+
+            while(true);
 
         }catch (RemoteException | NotBoundException ex){
             Logger.getLogger(Master.class.getName()).log(Level.SEVERE,null,ex);
