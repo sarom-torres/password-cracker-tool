@@ -1,5 +1,5 @@
-package STD29006.Worker;
-import STD29006.CrackerDistribuido;
+package STD29006.Trabalhador;
+import STD29006.TrabalhadorDistribuido;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.registry.LocateRegistry;
@@ -9,14 +9,12 @@ import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Worker {
+public class Servidor {
 
     //Para que servia o static nesses atributos
     private static String nomeServidor = "127.0.0.1";
     private static int porta = 12345;
     private static final String NOMEOBJDIST = "Servidor1";
-    private String status;
-
 
     public static void main(String args []){
 
@@ -29,22 +27,22 @@ public class Worker {
                 porta = Integer.parseInt(args[1]);
             }
 
-            Cracker ck = new Cracker();
+            Trabalhador trabalhador = new Trabalhador("Worker1");//Nome para teste
 
             System.setProperty("java.rmi.server.hostname", nomeServidor);
 
-            CrackerDistribuido stub = (CrackerDistribuido) UnicastRemoteObject.exportObject(ck,0);
+            TrabalhadorDistribuido stub = (TrabalhadorDistribuido) UnicastRemoteObject.exportObject(trabalhador,0);
 
             Registry registro = LocateRegistry.createRegistry(porta);
 
             registro.bind(NOMEOBJDIST,stub);
 
-            System.out.println("Worker pronto!/n");
+            System.out.println("Servidor pronto!/n");
 
 
         } catch (RemoteException | AlreadyBoundException ex){
 
-            Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null,ex);
+            Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null,ex);
         }
 
 

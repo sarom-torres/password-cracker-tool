@@ -1,6 +1,6 @@
 package STD29006.Master;
 
-import STD29006.CrackerDistribuido;
+import STD29006.TrabalhadorDistribuido;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -29,12 +29,14 @@ public class Master {
             System.out.println("Conectando no servidor " + nomeServidor);
 
             Registry registro = LocateRegistry.getRegistry(nomeServidor, porta);
+            TrabalhadorDistribuido Trabalhador1 = (TrabalhadorDistribuido) registro.lookup(NOMEOBJDIST);
 
-            CrackerDistribuido stub = (CrackerDistribuido) registro.lookup(NOMEOBJDIST);
+            //Status st1 = Trabalhador1.getStatus();
 
-            System.out.println("Say hello..." + stub.sayHello());
+            System.out.println("O " + Trabalhador1.getNome() + " está " + Trabalhador1.getStatus().toString());
 
             System.out.println("End...");
+
         }catch (RemoteException | NotBoundException ex){
             Logger.getLogger(Master.class.getName()).log(Level.SEVERE,null,ex);
         }
