@@ -1,9 +1,13 @@
 package STD29006.Master;
 
+import STD29006.NotificacaoDistribuida;
 import STD29006.TrabalhadorDistribuido;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -13,10 +17,11 @@ public class Master {
 
     private static String nomeServidor = "127.0.0.1";
     private static int porta = 12345;
-    private static final String NOMEOBJDIST1 = "Servidor1";
+    private static final String NOMEOBJDIST = "Trabalhador1";
     private static final String NOMEOBJLIST = "Listener1";
     private static final String NOMEOBJOBS = "OBS1";
-    private static ArrayList<UUID> trabOnline = new ArrayList<>();
+    private static final String NOMEMASTER = "Master";
+    private static ArrayList<TrabalhadorDistribuido> trabOnline = new ArrayList<>();
 
     public static void main(String args []) {
 
@@ -29,23 +34,27 @@ public class Master {
                 porta = Integer.parseInt(args[1]);
             }
 
-            System.out.println("Conectando no servidor " + nomeServidor);
+            System.out.println("Mestre online... " + nomeServidor);
             //-------------------------------------------------------------------------
 
 
-            Gerenciador gerenciador = new Gerenciador(nomeServidor, porta);
+            System.setProperty("java.rmi.server.hostname", nomeServidor);
+            Registry registro = LocateRegistry.createRegistry(porta);
 
-            gerenciador.criarListener(NOMEOBJLIST,trabOnline);
-            gerenciador.criarObservado(NOMEOBJOBS);
+            Notificacao notificacao1 = new Notificacao(trabOnline,registro);
+            NotificacaoDistribuida notStub = (NotificacaoDistribuida) UnicastRemoteObject.exportObject(notificacao1,0);
+            registro.bind(NOMEMASTER,notStub);
 
 
-            //TODO Sleep paliativo para execução
-            try { Thread.sleep (10000); } catch (InterruptedException ex) {};
-
-            System.out.println("End...");
-            System.out.println(trabOnline.get(0).toString());
-
-            while(true);
+//            //TODO Sleep paliativo para execução
+//            try { Thread.sleep (15000); } catch (InterruptedException ex) {};
+//
+//
+//            System.out.println("O trabalhador " + trabOnline.get(0).getNome().toString() + " está online!");
+//            System.out.println("O trabalhador " + trabOnline.get(1).getNome().toString() + " está online!");
+//            System.out.println("O trabalhador " + trabOnline.get(2).getNome().toString() + " está online!");
+//
+//            while(true);
 
         }/*catch (RemoteException | NotBoundException ex){
             Logger.getLogger(Master.class.getName()).log(Level.SEVERE,null,ex);

@@ -2,6 +2,7 @@ package STD29006;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.UUID;
 
 public interface TrabalhadorDistribuido extends Remote {
 
@@ -9,5 +10,5 @@ public interface TrabalhadorDistribuido extends Remote {
     public Status getStatus() throws RemoteException;
     public boolean executar() throws  RemoteException;
     public boolean pararExecucao() throws RemoteException;
-    public String getNome() throws RemoteException; // método para teste
+    public UUID getNome() throws RemoteException; // método para teste
 }

@@ -1,6 +1,5 @@
 package STD29006.Trabalhador;
-import STD29006.ListenerDistribuido;
-import STD29006.ObservadoDistribuido;
+import STD29006.NotificacaoDistribuida;
 import STD29006.TrabalhadorDistribuido;
 
 import java.rmi.AlreadyBoundException;
@@ -22,6 +21,7 @@ public class Servidor {
     private static final String NOMEOBJOBS = "OBS1";
     private static final String NOMEWORKER = "WORKER_A";
     private static UUID uuidServidor = null;
+    private static final String NOMEMASTER = "Master";
 
 
     public static void main(String args []){
@@ -39,27 +39,30 @@ public class Servidor {
             Registry registro = LocateRegistry.getRegistry(nomeServidor, porta);
 
             //Pegando o objeto observado que foi criado no cliente
-            ObservadoDistribuido observado = (ObservadoDistribuido) registro.lookup(NOMEOBJOBS);
+//            ObservadoDistribuido observado = (ObservadoDistribuido) registro.lookup(NOMEOBJOBS);
 
             //Pegando listener que foi criado no cliente
-            ListenerDistribuido listener = (ListenerDistribuido) registro.lookup(NOMEOBJLIST);
+//            ListenerDistribuido listener = (ListenerDistribuido) registro.lookup(NOMEOBJLIST);
 
             //Adicionando listener a sua lista de escuta
-            observado.adicionarListener(listener);
+//            observado.adicionarListener(listener);
 
             //Cria UUID para identificar o servidor
             uuidServidor = UUID.randomUUID();
 
             //Setando valor true (online )no listener e passando seu identificador
-            observado.setValor(true, uuidServidor);
+//            observado.setValor(true, uuidServidor);
 
 
             //Criando e compartilhando obj trabalhador distribuido
-            Trabalhador trabalhador = new Trabalhador("Worker1");//Nome para teste
+            Trabalhador trabalhador = new Trabalhador(uuidServidor);//Nome para teste
             TrabalhadorDistribuido stub = (TrabalhadorDistribuido) UnicastRemoteObject.exportObject(trabalhador,0);
-            registro.bind(NOMEOBJDIST1,stub);
+            registro.bind(uuidServidor.toString(),stub);
 
-            System.out.println("Servidor pronto!/n");
+            NotificacaoDistribuida notificacao1 = (NotificacaoDistribuida) registro.lookup(NOMEMASTER);
+            notificacao1.anunciarOnline(uuidServidor);
+
+            System.out.println("Trabalhador " + uuidServidor.toString() + " pronto!/n");
 
 
         } catch (RemoteException |AlreadyBoundException ex){ // NotBoundException ex

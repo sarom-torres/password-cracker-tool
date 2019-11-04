@@ -2,16 +2,17 @@ package STD29006.Trabalhador;
 import STD29006.Status;
 import STD29006.TrabalhadorDistribuido;
 import java.rmi.RemoteException;
+import java.util.UUID;
 
 public class Trabalhador implements TrabalhadorDistribuido {
 
-    private String nome; //nome para teste
+    private UUID id; //nome para teste
     private Status status;
 
     //construtor para teste
-    public Trabalhador(String nome) {
+    public Trabalhador(UUID id) {
 
-        this.nome = nome;
+        this.id = id;
         this.status = Status.ONLINE;
     }
 
@@ -38,7 +39,9 @@ public class Trabalhador implements TrabalhadorDistribuido {
     }
 
     @Override
-    public String getNome() throws RemoteException {
-        return nome;
+    public UUID getNome() throws RemoteException {
+        return id;
     }
+
+
 }
