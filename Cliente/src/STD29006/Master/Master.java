@@ -46,17 +46,7 @@ public class Master {
             registro.bind(NOMEMASTER,notStub);
 
 
-//            //TODO Sleep paliativo para execução
-//            try { Thread.sleep (15000); } catch (InterruptedException ex) {};
-//
-//
-//            System.out.println("O trabalhador " + trabOnline.get(0).getNome().toString() + " está online!");
-//            System.out.println("O trabalhador " + trabOnline.get(1).getNome().toString() + " está online!");
-//            System.out.println("O trabalhador " + trabOnline.get(2).getNome().toString() + " está online!");
-//
-//            while(true);
-
-        }/*catch (RemoteException | NotBoundException ex){
+       }/*catch (RemoteException | NotBoundException ex){
             Logger.getLogger(Master.class.getName()).log(Level.SEVERE,null,ex);
         }*/ catch (RemoteException | AlreadyBoundException e){ // NotBoundException ex
             Logger.getLogger(Master.class.getName()).log(Level.SEVERE, null,e);

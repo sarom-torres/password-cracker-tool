@@ -38,20 +38,8 @@ public class Servidor {
             //Pegando o registro no servidor
             Registry registro = LocateRegistry.getRegistry(nomeServidor, porta);
 
-            //Pegando o objeto observado que foi criado no cliente
-//            ObservadoDistribuido observado = (ObservadoDistribuido) registro.lookup(NOMEOBJOBS);
-
-            //Pegando listener que foi criado no cliente
-//            ListenerDistribuido listener = (ListenerDistribuido) registro.lookup(NOMEOBJLIST);
-
-            //Adicionando listener a sua lista de escuta
-//            observado.adicionarListener(listener);
-
             //Cria UUID para identificar o servidor
             uuidServidor = UUID.randomUUID();
-
-            //Setando valor true (online )no listener e passando seu identificador
-//            observado.setValor(true, uuidServidor);
 
 
             //Criando e compartilhando obj trabalhador distribuido
@@ -59,6 +47,7 @@ public class Servidor {
             TrabalhadorDistribuido stub = (TrabalhadorDistribuido) UnicastRemoteObject.exportObject(trabalhador,0);
             registro.bind(uuidServidor.toString(),stub);
 
+            //Pegando objeto de notificacao e anunciando ao master que está online
             NotificacaoDistribuida notificacao1 = (NotificacaoDistribuida) registro.lookup(NOMEMASTER);
             notificacao1.anunciarOnline(uuidServidor);
 
