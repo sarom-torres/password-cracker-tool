@@ -9,6 +9,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,6 +20,9 @@ public class Servidor {
     private static final String NOMEOBJDIST1 = "Servidor1";
     private static final String NOMEOBJLIST = "Listener1";
     private static final String NOMEOBJOBS = "OBS1";
+    private static final String NOMEWORKER = "WORKER_A";
+    private static UUID uuidServidor = null;
+
 
     public static void main(String args []){
 
@@ -34,20 +38,21 @@ public class Servidor {
             //Pegando o registro no servidor
             Registry registro = LocateRegistry.getRegistry(nomeServidor, porta);
 
-            //Obtendo objeto de notificacao distribuida
-            //NotificacaoDistribuida Notificacacao = (NotificacaoDistribuida) registro.lookup(NOMEOBJNOTIF);
+            //Pegando o objeto observado que foi criado no cliente
+            ObservadoDistribuido observado = (ObservadoDistribuido) registro.lookup(NOMEOBJOBS);
 
+            //Pegando listener que foi criado no cliente
             ListenerDistribuido listener = (ListenerDistribuido) registro.lookup(NOMEOBJLIST);
 
-            ObservadoDistribuido observado = (ObservadoDistribuido) registro.lookup(NOMEOBJOBS);
+            //Adicionando listener a sua lista de escuta
             observado.adicionarListener(listener);
-            observado.setAtributoQualquer(true);
 
+            //Cria UUID para identificar o servidor
+            uuidServidor = UUID.randomUUID();
 
+            //Setando valor true (online )no listener e passando seu identificador
+            observado.setValor(true, uuidServidor);
 
-//  O observador cria no cliente e manda para o servidor
-  //
-//  O observado cria no servidro e manda para o cliente
 
             //Criando e compartilhando obj trabalhador distribuido
             Trabalhador trabalhador = new Trabalhador("Worker1");//Nome para teste

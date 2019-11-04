@@ -4,6 +4,7 @@ package STD29006;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.UUID;
 
 public interface ObservadoDistribuido extends Remote {
 
@@ -24,7 +25,11 @@ public interface ObservadoDistribuido extends Remote {
     /**
      * mudanca de valor a ser feita pelo trabalhador e que será notificada ao master
      * @param novoValor novo valor que será notificado
+     * @param nomeServidor identificador do servidor que está gerando a notificacao
      * @throws RemoteException
      * */
-    public void setOnline(Object novoValor) throws RemoteException;
+    public void setValor(Object novoValor, UUID nomeServidor) throws RemoteException;
+
+    //TODO javadoc
+    public UUID getNome() throws RemoteException;
 }

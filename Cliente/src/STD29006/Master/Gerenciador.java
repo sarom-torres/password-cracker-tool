@@ -17,6 +17,8 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class Gerenciador{
 
@@ -50,8 +52,8 @@ public class Gerenciador{
      * @throws RemoteException
      * @throws RemoteException
      * */
-    public ListenerDistribuido criarListener(String nomeObjDist) throws RemoteException, AlreadyBoundException {
-        this.listener = new Listener();
+    public ListenerDistribuido criarListener(String nomeObjDist, ArrayList<UUID> trabOnline) throws RemoteException, AlreadyBoundException {
+        this.listener = new Listener(trabOnline);
         this.lstDist = (ListenerDistribuido) UnicastRemoteObject.exportObject(listener,0);
         this.registro.bind(nomeObjDist,lstDist);
         return lstDist;
