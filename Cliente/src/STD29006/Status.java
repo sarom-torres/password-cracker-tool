@@ -16,5 +16,5 @@ public enum Status implements Remote {
     /*
     * Quando o servidor está online executando uma tarefa
     * */
-    PRONTO;
+    OCUPADO;
 }

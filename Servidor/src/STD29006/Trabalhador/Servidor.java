@@ -41,7 +41,6 @@ public class Servidor {
             //Cria UUID para identificar o servidor
             uuidServidor = UUID.randomUUID();
 
-
             //Criando e compartilhando obj trabalhador distribuido
             Trabalhador trabalhador = new Trabalhador(uuidServidor);//Nome para teste
             TrabalhadorDistribuido stub = (TrabalhadorDistribuido) UnicastRemoteObject.exportObject(trabalhador,0);
@@ -61,5 +60,5 @@ public class Servidor {
         }
 
 
-}
+    }
 }

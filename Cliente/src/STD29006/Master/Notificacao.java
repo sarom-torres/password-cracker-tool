@@ -8,13 +8,14 @@ import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.UUID;
+import java.util.Vector;
 
 public class Notificacao implements NotificacaoDistribuida {
 
-    private ArrayList<TrabalhadorDistribuido> trabOnline;
+    private Vector<TrabalhadorDistribuido> trabOnline;
     private Registry registro;
 
-    public Notificacao(ArrayList <TrabalhadorDistribuido> trabOnline, Registry registro){
+    public Notificacao(Vector <TrabalhadorDistribuido> trabOnline, Registry registro){
         this.trabOnline = trabOnline;
         this.registro = registro;
     }
