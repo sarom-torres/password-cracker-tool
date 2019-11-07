@@ -51,6 +51,12 @@ public class Gerenciador {
         return false;
     }
 
+    /**
+     * Esse método é usado pela classe Gerenciador para ler as linhas
+     * do arquivo e enviá-la ao trabalhador
+     * @param nomeArquivo é o nome do arquivo a ser enviado
+     * @param trab é o trabalahdor a qual será enviado o arquivo
+     * */
     private boolean enviarArquivo(String nomeArquivo, TrabalhadorDistribuido trab){
 
         File arquivo = new File(nomeArquivo);
@@ -62,7 +68,8 @@ public class Gerenciador {
                 System.out.println(linha);
                 trab.receberLinha(linha);
             }
-            trab.receberLinha("EOF");
+            String strEOF = "EOF";
+            trab.receberLinha(strEOF);
             leitor.close();
             return true;
         }catch (Exception e){

@@ -14,7 +14,7 @@ public class Trabalhador implements TrabalhadorDistribuido {
 
     private UUID id; //nome para teste
     private Status status;
-
+    private final String strEOF = "EOF";
     //construtor para teste
     public Trabalhador(UUID id) {
 
@@ -26,7 +26,10 @@ public class Trabalhador implements TrabalhadorDistribuido {
     public void receberLinha(String linha) throws RemoteException {
 
         //TODO decidir o que será feito quando terminar o arquivo
-        if(linha == "EOF") return;
+        if(linha.equals(strEOF)){
+            Thread crackerThread = new Cracker();
+            crackerThread.start();
+        }
 
         FileWriter fwArquivo;
         BufferedWriter bwArquivo;
