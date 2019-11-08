@@ -20,7 +20,7 @@ public class Master {
     private static int porta = 12345;
     private static final String NOMEMASTER = "Master";
     private static Vector<TrabalhadorDistribuido> trabOnline = new Vector<>();
-    //private static Vector<TrabalhadorDistribuido> aux =new Vector<>();
+    private static ArrayList<String> listaArqConf = new ArrayList<>();
 
 
     public static void main(String args []) {
@@ -37,21 +37,28 @@ public class Master {
             System.out.println("Mestre online... " + nomeServidor);
             //-------------------------------------------------------------------------
 
+            //Criando Registro
             System.setProperty("java.rmi.server.hostname", nomeServidor);
             Registry registro = LocateRegistry.createRegistry(porta);
 
+            //TODO decidir em qual classe será adicionado o arquivo de configuracao do trabalhador
+            //Setando lista com arquivos de configuração dos trabalhadores
+            listaArqConf.add("A115");
+            listaArqConf.add("A116");
+            listaArqConf.add("A117");
+
+            //Criando notificação distribuida
             Notificacao notificacao1 = new Notificacao(trabOnline,registro);
             NotificacaoDistribuida notStub = (NotificacaoDistribuida) UnicastRemoteObject.exportObject(notificacao1,0);
             registro.bind(NOMEMASTER,notStub);
 
+            //Criando gerenciador e iniciando thread do menu
             Gerenciador gerenciador = new Gerenciador(trabOnline);
             Thread menuThread = new Menu(gerenciador);
             menuThread.start();
 
 
-       }/*catch (RemoteException | NotBoundException ex){
-            Logger.getLogger(Master.class.getName()).log(Level.SEVERE,null,ex);
-        }*/ catch (RemoteException | AlreadyBoundException e){ // NotBoundException ex
+       }catch (RemoteException | AlreadyBoundException e){ // NotBoundException ex
             Logger.getLogger(Master.class.getName()).log(Level.SEVERE, null,e);
         }
 

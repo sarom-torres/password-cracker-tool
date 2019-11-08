@@ -7,27 +7,28 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.rmi.RemoteException;
-import java.util.Scanner;
 import java.util.UUID;
 
 public class Trabalhador implements TrabalhadorDistribuido {
 
-    private UUID id; //nome para teste
+    private UUID id;
     private Status status;
-    private final String strEOF = "EOF";
-    //construtor para teste
+    private String arqConf;
+
+
+
     public Trabalhador(UUID id) {
 
         this.id = id;
         this.status = Status.EM_ESPERA;
+        this.arqConf = null;
     }
 
     @Override
     public void receberLinha(String linha) throws RemoteException {
 
-        //TODO decidir o que será feito quando terminar o arquivo
-        if(linha.equals(strEOF)){
-            Thread crackerThread = new Cracker();
+        if(linha.equals("EOF")){
+            Thread crackerThread = new Cracker(arqConf);
             crackerThread.start();
         }
 
@@ -71,6 +72,11 @@ public class Trabalhador implements TrabalhadorDistribuido {
     @Override
     public UUID getNome() throws RemoteException {
         return id;
+    }
+
+    @Override
+    public void setArquivoConfig(String arqConf) throws RemoteException {
+        this.arqConf = arqConf;
     }
 
     public void setStatus(Status st){

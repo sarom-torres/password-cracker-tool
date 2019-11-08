@@ -6,12 +6,22 @@ import java.io.InputStreamReader;
 
 public class Cracker extends Thread {
 
-    private ProcessBuilder processBuilder = new ProcessBuilder();
+    private ProcessBuilder processBuilder;
+    private String arqConf;
+    private String comando;
+
+    public Cracker(String arqConf){
+        this.processBuilder = new ProcessBuilder();
+        this.arqConf = arqConf;
+    }
 
     public void run(){
         System.out.println("Entrou na thread");
-        processBuilder.command("bash", "-c", "echo Hello World!");
-//        processBuilder.command("echo Hello World!");
+
+        this.comando = "john -i="+arqConf+" senhas.txt";
+
+        //TODO O comando é executado como sudo, como fazer?
+        processBuilder.command("bash", "-c", comando);
         try {
             Process process = processBuilder.start();
 
@@ -23,8 +33,10 @@ public class Cracker extends Thread {
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
             }
-
+            //TODO devolver para o mestre o resultado
             System.out.println(output);
+
+            //TODO como apagar arquivo de senhas após a execução
 
         } catch (IOException e) {
             e.printStackTrace();

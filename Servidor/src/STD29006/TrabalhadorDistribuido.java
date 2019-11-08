@@ -13,6 +13,7 @@ public interface TrabalhadorDistribuido extends Remote {
     public Status getStatus() throws RemoteException;
     public boolean executar() throws  RemoteException;
     public boolean pararExecucao() throws RemoteException;
-    public UUID getNome() throws RemoteException; // método para teste
+    public UUID getNome() throws RemoteException;
+    public void setArquivoConfig(String arqConf) throws RemoteException;
 
 }
