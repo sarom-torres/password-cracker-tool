@@ -43,9 +43,9 @@ public class Master {
 
             //TODO decidir em qual classe será adicionado o arquivo de configuracao do trabalhador
             //Setando lista com arquivos de configuração dos trabalhadores
-            listaArqConf.add("A115");
-            listaArqConf.add("A116");
-            listaArqConf.add("A117");
+//            listaArqConf.add("A115"); //all5
+//            listaArqConf.add("A116");
+//            listaArqConf.add("A117");
 
             //Criando notificação distribuida
             Notificacao notificacao1 = new Notificacao(trabOnline,registro);

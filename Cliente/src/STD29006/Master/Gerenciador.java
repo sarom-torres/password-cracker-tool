@@ -4,6 +4,9 @@ import STD29006.Status;
 import STD29006.TrabalhadorDistribuido;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,9 +15,17 @@ import java.util.Vector;
 public class Gerenciador {
 
     private Vector<TrabalhadorDistribuido> trabOnline;
+    private ArrayList<String> listaEstrategia;
 
     public Gerenciador(Vector<TrabalhadorDistribuido>trabOnline) {
         this.trabOnline = trabOnline;
+        listaEstrategia = new ArrayList<>();
+
+        //TODO está correto fazer isso no construtor?
+        listaEstrategia.add("all5");
+        listaEstrategia.add("all6");
+        listaEstrategia.add("all7");
+        listaEstrategia.add("all8");
     }
 
     public String trabalhadoresOnline() throws RemoteException {
@@ -41,40 +52,78 @@ public class Gerenciador {
         return frase;
     }
 
-    public boolean enviaTarefa(String nomeArquivo) throws RemoteException{
+    /**
+     * Adiciona uma tarefa ao trabalhador passando o arquivos e seus tipos
+     * @param nomeArquivo1 nome do arquivo a ser transmitido ao trabalhador
+     * @param nomeArquivo2 nome do arquivo a ser transmitido ao trabalhador
+     * @param tipoArq1 tipo do arquivo a ser transmitido
+     *                 s : para arquivo de senhas
+     *                 d: para arquivo de dicionario
+     * @param tipoArq2 tipo do arquivo a ser transmitido
+     * * */
+    public boolean adicionarTarefa(String nomeArquivo1,String tipoArq1,String nomeArquivo2,String tipoArq2) throws RemoteException{
+
+        byte [] arqEnv1 = serializarArquivo(nomeArquivo1);
+        byte [] arqEnv2 = serializarArquivo(nomeArquivo2);
 
         for (TrabalhadorDistribuido trab: trabOnline) {
             if(trab.getStatus()== Status.EM_ESPERA){
-                return enviarArquivo(nomeArquivo,trab);
+                trab.receberArquivo(arqEnv1,tipoArq1);
+                trab.receberArquivo(arqEnv2,tipoArq2);
+                //Comando dois para fazer a quebra com o dicionario;
+                trab.receberTarefa(listaEstrategia.get(0),"2");
+                listaEstrategia.add(listaEstrategia.remove(0));
+                return true;
             }
         }
         return false;
     }
 
     /**
-     * Esse método é usado pela classe Gerenciador para ler as linhas
-     * do arquivo e enviá-la ao trabalhador
-     * @param nomeArquivo é o nome do arquivo a ser enviado
-     * @param trab é o trabalahdor a qual será enviado o arquivo
-     * */
-    private boolean enviarArquivo(String nomeArquivo, TrabalhadorDistribuido trab){
+     * Adiciona uma tarefa ao trabalhador passando o arquivos e seus tipos
+     * @param nomeArquivo1 nome do arquivo a ser transmitido ao trabalhador
+     * @param tipoArq1 tipo do arquivo a ser transmitido
+     *                 s : para arquivo de senhas
+     *                 d: para arquivo de dicionario
+     * * */
+    public boolean adicionarTarefa(String nomeArquivo1,String tipoArq1) throws RemoteException{
 
-        File arquivo = new File(nomeArquivo);
+        byte [] arqEnv1 = serializarArquivo(nomeArquivo1);
 
-        try {
-            Scanner leitor = new Scanner(arquivo);
-            while (leitor.hasNextLine()) {
-                String linha = leitor.nextLine();
-                System.out.println(linha);
-                trab.receberLinha(linha);
+
+        for (TrabalhadorDistribuido trab: trabOnline) {
+            if(trab.getStatus()== Status.EM_ESPERA){
+                trab.receberArquivo(arqEnv1,tipoArq1);
+                //Cmd = 1  para fazer a quebra incremental;
+                trab.receberTarefa(listaEstrategia.get(0),"1");
+                listaEstrategia.add(listaEstrategia.remove(0));
+                return true;
             }
-            String strEOF = "EOF";
-            trab.receberLinha(strEOF);
-            leitor.close();
-            return true;
-        }catch (Exception e){
-            System.err.println("Erro ao ler arquivo: " + e.toString());
         }
         return false;
+    }
+
+    /**
+     * Esse método é usado pela classe Gerenciador serializar as linhas
+     * do arquivo e transformá-las em um vetor de bytes
+     * @param nomeArquivo é o nome do arquivo a ser serializado
+     * */
+    private byte[] serializarArquivo(String nomeArquivo){
+
+            File arquivo = new File(nomeArquivo);
+
+            int tamanho = (int)arquivo.length();
+            byte[] buffer = new byte[tamanho];
+            FileInputStream file  = null;
+            try {
+                file = new FileInputStream(arquivo);
+                file.read(buffer, 0, tamanho);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            return buffer;
     }
 }

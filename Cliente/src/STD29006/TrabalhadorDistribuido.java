@@ -7,8 +7,8 @@ import java.util.UUID;
 
 public interface TrabalhadorDistribuido extends Remote {
 
-    public void receberLinha(String linha) throws RemoteException;
-    public boolean enviarLinha(File arquivo, File dicionario) throws RemoteException;
+    public boolean receberArquivo(byte [] arqSerial, String tipo) throws RemoteException;
+    public boolean receberTarefa(String estrategia, String cmd) throws RemoteException;
     public Status getStatus() throws RemoteException;
     public boolean executar() throws  RemoteException;
     public boolean pararExecucao() throws RemoteException;

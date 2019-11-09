@@ -21,37 +21,45 @@ public class Trabalhador implements TrabalhadorDistribuido {
 
         this.id = id;
         this.status = Status.EM_ESPERA;
-        this.arqConf = null;
+//        this.arqConf = null;
     }
 
     @Override
-    public void receberLinha(String linha) throws RemoteException {
-
-        if(linha.equals("EOF")){
-            Thread crackerThread = new Cracker(arqConf);
-            crackerThread.start();
-        }
+    public boolean receberArquivo(byte[] arqSerial, String tipo) throws RemoteException {
 
         FileWriter fwArquivo;
         BufferedWriter bwArquivo;
+        String nomeArquivo = "";
         try {
-            File arquivo = new File("senhas.txt");
 
-            fwArquivo = new FileWriter(arquivo, arquivo.exists());
+            if(tipo.equals("d")){
+                nomeArquivo = "dicionario.txt";
+            }else {
+                nomeArquivo = "senhas.txt";
+            }
+            File arquivo = new File(nomeArquivo);
+
+            fwArquivo = new FileWriter(arquivo, false);
             bwArquivo = new BufferedWriter(fwArquivo);
-            bwArquivo.write(linha + '\n');
+
+            String texto = new String(arqSerial, "UTF-8");
+            bwArquivo.write(texto + '\n');
             bwArquivo.close();
             fwArquivo.close();
-
+            return true;
         } catch (IOException e) {
             System.err.println("Erro ao tentar escrever no arquivo: " + e.toString());
         }
+        return false;
     }
 
     @Override
-    public boolean enviarLinha(File arquivo, File dicionario) throws RemoteException {
+    public boolean receberTarefa(String estrategia, String cmd) {
+        Thread crackerThread = new Cracker(estrategia,cmd);
+        crackerThread.start();
         return false;
     }
+
 
     @Override
     public Status getStatus() throws RemoteException {

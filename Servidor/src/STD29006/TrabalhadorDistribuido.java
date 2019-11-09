@@ -7,9 +7,24 @@ import java.util.UUID;
 
 public interface TrabalhadorDistribuido extends Remote {
 
-    //TODO arq enviado deve ser txt ou pode ter outras extensões...O caminho para o arquivo deve ser passado?
-    public void receberLinha(String linha) throws RemoteException;
-    public boolean enviarLinha(File arquivo, File dicionario) throws RemoteException;
+    /**
+     * Trabalhador recebe o arquivo serializado em bytes e o escreve em formato .txt
+     * @param arqSerial array de baytes contendo o arquivo transmitido
+     * @param tipo deifne o tipo do arquivo transmitido
+     * s : arquivo de senhas
+     * d : arquivo de dicionário
+     * */
+    public boolean receberArquivo(byte[] arqSerial, String tipo) throws RemoteException;
+
+    /**
+     * Recebe a tarefa enviada pelo master e dispara uma thread para executá-la
+     * @param estrategia define qual estratégia será usada pelo john para quebrar a senha:
+     * All5, All6, All7, All8
+     * @param cmd define qual comando será executado pelo john
+     * 1 => john -i=digits nome_do_arquivo.txt
+     * 2 => john --wordlist:arquivo_dicionario.txt nome_do_arquivo.txt
+     * */
+    public boolean receberTarefa(String estrategia, String cmd) throws RemoteException;
     public Status getStatus() throws RemoteException;
     public boolean executar() throws  RemoteException;
     public boolean pararExecucao() throws RemoteException;
