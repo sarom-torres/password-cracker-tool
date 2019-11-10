@@ -26,4 +26,10 @@ public class Notificacao implements NotificacaoDistribuida {
         trabOnline.add(trabalhador);
 
     }
+
+    @Override
+    public void atividadePronta(StringBuilder resultado) throws RemoteException {
+        //TODO paliativo
+        System.out.println("O resultado foi "+ resultado);
+    }
 }

@@ -1,5 +1,7 @@
 package STD29006.Trabalhador;
 
+import STD29006.NotificacaoDistribuida;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,20 +9,19 @@ import java.io.InputStreamReader;
 public class Cracker extends Thread {
 
     private ProcessBuilder processBuilder;
-    private String arqConf;
-
     //TODO mudar o caminho dos comandos
     private final String CMD_INCREMENTAL = "/usr/sbin/john -i=";
     private final String CMD_DICIONARIO = "/usr/sbin/john --wordlist:";
     private final String CMD_AUTOMATICO = "/usr/sbin/john senhas.txt";
     private final String ARQ_INCREMENTAL = " senhas.txt";
     private final String ARQ_DICIONARIO = " dicionario.txt senhas.txt";
-
-    private String arq;
     private String comando;
+    private NotificacaoDistribuida notificacao;
 
-    public Cracker(String estrategia, String cmd){
+    public Cracker(String estrategia, String cmd, NotificacaoDistribuida notificacao){
+
         this.processBuilder = new ProcessBuilder();
+        this.notificacao = notificacao;
 
         //TODO está correto fazer esse else if aqui?
         if(cmd.equals("1")){
@@ -47,11 +48,11 @@ public class Cracker extends Thread {
             while ((line = reader.readLine()) != null) {
                 output.append(line + "\n");
             }
-            //TODO devolver para o mestre o resultado
+            //TODO remover o print
             System.out.println(output);
 
-            //TODO como apagar arquivo de senhas após a execução
-
+            //TODO enviando um StringBuilder, devo enviar um array de byte?
+            notificacao.atividadePronta(output);
 
         } catch (IOException e) {
             e.printStackTrace();

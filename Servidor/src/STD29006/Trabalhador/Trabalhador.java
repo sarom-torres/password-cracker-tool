@@ -1,4 +1,5 @@
 package STD29006.Trabalhador;
+import STD29006.NotificacaoDistribuida;
 import STD29006.Status;
 import STD29006.TrabalhadorDistribuido;
 
@@ -13,15 +14,13 @@ public class Trabalhador implements TrabalhadorDistribuido {
 
     private UUID id;
     private Status status;
-    private String arqConf;
+    private NotificacaoDistribuida notificacao;
 
-
-
-    public Trabalhador(UUID id) {
+    public Trabalhador(UUID id, NotificacaoDistribuida notificacao) {
 
         this.id = id;
         this.status = Status.EM_ESPERA;
-//        this.arqConf = null;
+        this.notificacao = notificacao;
     }
 
     @Override
@@ -55,8 +54,9 @@ public class Trabalhador implements TrabalhadorDistribuido {
 
     @Override
     public boolean receberTarefa(String estrategia, String cmd) {
-        Thread crackerThread = new Cracker(estrategia,cmd);
+        Thread crackerThread = new Cracker(estrategia,cmd,notificacao);
         crackerThread.start();
+        setStatus(Status.OCUPADO);
         return false;
     }
 
@@ -68,11 +68,6 @@ public class Trabalhador implements TrabalhadorDistribuido {
 
 
     @Override
-    public boolean executar() throws RemoteException {
-        return false;
-    }
-
-    @Override
     public boolean pararExecucao() throws RemoteException {
         return false;
     }
@@ -82,12 +77,8 @@ public class Trabalhador implements TrabalhadorDistribuido {
         return id;
     }
 
-    @Override
-    public void setArquivoConfig(String arqConf) throws RemoteException {
-        this.arqConf = arqConf;
-    }
 
-    public void setStatus(Status st){
+    private void setStatus(Status st){
         this.status = st;
     }
 

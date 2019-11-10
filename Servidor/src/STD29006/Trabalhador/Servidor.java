@@ -41,13 +41,16 @@ public class Servidor {
             //Cria UUID para identificar o servidor
             uuidServidor = UUID.randomUUID();
 
+            //Pegando objeto de notificacao e anunciando ao master que está online
+            NotificacaoDistribuida notificacao1 = (NotificacaoDistribuida) registro.lookup(NOMEMASTER);
+
             //Criando e compartilhando obj trabalhador distribuido
-            Trabalhador trabalhador = new Trabalhador(uuidServidor);//Nome para teste
+            Trabalhador trabalhador = new Trabalhador(uuidServidor,notificacao1);//Nome para teste
             TrabalhadorDistribuido stub = (TrabalhadorDistribuido) UnicastRemoteObject.exportObject(trabalhador,0);
             registro.bind(uuidServidor.toString(),stub);
 
             //Pegando objeto de notificacao e anunciando ao master que está online
-            NotificacaoDistribuida notificacao1 = (NotificacaoDistribuida) registro.lookup(NOMEMASTER);
+            //NotificacaoDistribuida notificacao1 = (NotificacaoDistribuida) registro.lookup(NOMEMASTER);
             notificacao1.anunciarOnline(uuidServidor);
 
             System.out.println("Trabalhador " + uuidServidor.toString() + " pronto!/n");

@@ -8,4 +8,5 @@ import java.util.UUID;
 public interface NotificacaoDistribuida extends Remote {
 
     public void anunciarOnline(UUID id) throws RemoteException, NotBoundException;
+    public void atividadePronta(StringBuilder Resultado) throws RemoteException;
 }

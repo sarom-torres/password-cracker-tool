@@ -25,10 +25,11 @@ public interface TrabalhadorDistribuido extends Remote {
      * 2 => john --wordlist:arquivo_dicionario.txt nome_do_arquivo.txt
      * */
     public boolean receberTarefa(String estrategia, String cmd) throws RemoteException;
+
+    /**
+     * Retorna um Enum Status que define se o trabalahdor está EM_ESPERA ou OCUPADO
+     * */
     public Status getStatus() throws RemoteException;
-    public boolean executar() throws  RemoteException;
     public boolean pararExecucao() throws RemoteException;
     public UUID getNome() throws RemoteException;
-    public void setArquivoConfig(String arqConf) throws RemoteException;
-
 }
