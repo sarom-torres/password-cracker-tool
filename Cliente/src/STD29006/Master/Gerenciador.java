@@ -31,9 +31,11 @@ public class Gerenciador {
     public String trabalhadoresOnline() throws RemoteException {
         String dados = "";
         if(trabOnline.size() != 0){
+            int cont = 1;
             for (TrabalhadorDistribuido trab : trabOnline) {
-                dados += "O Trabalhador " + trab.getNome() +
+                dados += cont + " - Trabalhador " + trab.getNome() +
                         " está online e " + trab.getStatus() +".\n";
+                cont++;
             }
         }
         return dados;
@@ -103,6 +105,14 @@ public class Gerenciador {
         return false;
     }
 
+    public boolean encerrarProcesso(String indice) throws RemoteException {
+
+        int i = Integer.parseInt(indice);
+        TrabalhadorDistribuido trab = trabOnline.get(i-1);
+        return trab.pararExecucao();
+
+    }
+
     /**
      * Esse método é usado pela classe Gerenciador serializar as linhas
      * do arquivo e transformá-las em um vetor de bytes
@@ -126,4 +136,6 @@ public class Gerenciador {
             }
             return buffer;
     }
+
+
 }

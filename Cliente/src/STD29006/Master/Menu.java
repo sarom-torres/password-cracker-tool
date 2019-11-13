@@ -64,7 +64,14 @@ public class Menu extends Thread {
 
                     break;
                 case "3":
-                    System.out.println("Entre com o caminho do arquivo.");
+                    try {
+                        System.out.println(gerenciador.trabalhadoresOnline());
+                        System.out.println("\nDigite o índice do processo que deseja terminar:");
+                        String indice = teclado.nextLine();
+                        gerenciador.encerrarProcesso(indice);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
                     String caminho = teclado.nextLine();
 
             }

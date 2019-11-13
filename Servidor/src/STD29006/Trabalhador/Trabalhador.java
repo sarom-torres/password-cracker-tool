@@ -15,12 +15,15 @@ public class Trabalhador implements TrabalhadorDistribuido {
     private UUID id;
     private Status status;
     private NotificacaoDistribuida notificacao;
+    private ProcessBuilder processBuilder;
+    private Process process;
 
     public Trabalhador(UUID id, NotificacaoDistribuida notificacao) {
 
         this.id = id;
         this.status = Status.EM_ESPERA;
         this.notificacao = notificacao;
+        this.processBuilder = new ProcessBuilder(); //TODO ver se isso é aqui
     }
 
     @Override
@@ -53,8 +56,8 @@ public class Trabalhador implements TrabalhadorDistribuido {
     }
 
     @Override
-    public boolean receberTarefa(String estrategia, String cmd) {
-        Thread crackerThread = new Cracker(estrategia,cmd,notificacao);
+    public boolean receberTarefa(String estrategia, String cmd) throws IOException {
+        Thread crackerThread = new Cracker(estrategia,cmd,notificacao,status,this);
         crackerThread.start();
         setStatus(Status.OCUPADO);
         return false;
@@ -69,7 +72,11 @@ public class Trabalhador implements TrabalhadorDistribuido {
 
     @Override
     public boolean pararExecucao() throws RemoteException {
-        return false;
+        //TODO colocar tratamento para caso não esteja em execução
+        //Como interromper a thread para não gerar exceção
+        process.destroy();
+        setStatus(Status.EM_ESPERA);
+        return true;
     }
 
     @Override
@@ -77,6 +84,17 @@ public class Trabalhador implements TrabalhadorDistribuido {
         return id;
     }
 
+    public ProcessBuilder getProcessBuilder() {
+        return processBuilder;
+    }
+
+    public Process getProcess() {
+        return process;
+    }
+
+    public void setProcess(Process process) {
+        this.process = process;
+    }
 
     private void setStatus(Status st){
         this.status = st;

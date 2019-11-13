@@ -3,23 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="bfbb3f85-33f4-40a4-8a1e-259950db29e2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Cliente/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/Master/Master.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/Master/Master.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/Master/Gerenciador.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/Master/Gerenciador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/Master/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/Master/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/Master/Notificacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/Master/Notificacao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/NotificacaoDistribuida.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/NotificacaoDistribuida.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/TrabalhadorDistribuido.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/out/production/Cliente/STD29006/TrabalhadorDistribuido.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cliente/src/STD29006/Master/Master.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/src/STD29006/Master/Master.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cliente/src/STD29006/Master/Gerenciador.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/src/STD29006/Master/Gerenciador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cliente/src/STD29006/Master/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/src/STD29006/Master/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cliente/src/STD29006/Master/Notificacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/src/STD29006/Master/Notificacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Cliente/src/STD29006/NotificacaoDistribuida.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/src/STD29006/NotificacaoDistribuida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cliente/src/STD29006/TrabalhadorDistribuido.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cliente/src/STD29006/TrabalhadorDistribuido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Servidor/STD29006/NotificacaoDistribuida.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Servidor/STD29006/NotificacaoDistribuida.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Servidor/STD29006/Trabalhador/Cracker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Servidor/STD29006/Trabalhador/Cracker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Servidor/STD29006/Trabalhador/Servidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Servidor/STD29006/Trabalhador/Servidor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Servidor/STD29006/Trabalhador/Trabalhador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Servidor/STD29006/Trabalhador/Trabalhador.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Servidor/STD29006/TrabalhadorDistribuido.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Servidor/STD29006/TrabalhadorDistribuido.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/STD29006/NotificacaoDistribuida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/STD29006/NotificacaoDistribuida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/STD29006/Trabalhador/Cracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/STD29006/Trabalhador/Cracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/STD29006/Trabalhador/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/STD29006/Trabalhador/Servidor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/STD29006/Trabalhador/Trabalhador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/STD29006/Trabalhador/Trabalhador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/STD29006/TrabalhadorDistribuido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/STD29006/TrabalhadorDistribuido.java" afterDir="false" />
     </list>
@@ -38,34 +36,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/STD29006/Trabalhador/Servidor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="47" column="79" selection-start-line="47" selection-start-column="79" selection-end-line="47" selection-end-column="79" />
+            <state relative-caret-position="258">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/STD29006/Trabalhador/Trabalhador.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2103#2104#0" expanded="true" />
-                <element signature="e#2135#2136#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/STD29006/Trabalhador/Trabalhador.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="75" column="58" selection-start-line="75" selection-start-column="58" selection-end-line="75" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2417#2418#0" expanded="true" />
+                <element signature="e#2454#2455#0" expanded="true" />
+                <element signature="e#2489#2490#0" expanded="true" />
+                <element signature="e#2519#2520#0" expanded="true" />
+                <element signature="e#2575#2576#0" expanded="true" />
+                <element signature="e#2613#2614#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/STD29006/Trabalhador/Cracker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="198">
+              <caret line="57" column="28" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/STD29006/TrabalhadorDistribuido.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="618">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,8 +95,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/STD29006/NotificacaoDistribuida.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+            <state relative-caret-position="240">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -139,18 +141,17 @@
         <option value="$PROJECT_DIR$/src/STD29006/Status.java" />
         <option value="$PROJECT_DIR$/senhas.txt" />
         <option value="$PROJECT_DIR$/src/STD29006/TrabalhadorDistribuido.java" />
+        <option value="$PROJECT_DIR$/src/STD29006/Trabalhador/Servidor.java" />
         <option value="$PROJECT_DIR$/src/STD29006/NotificacaoDistribuida.java" />
         <option value="$PROJECT_DIR$/src/STD29006/Trabalhador/Cracker.java" />
-        <option value="$PROJECT_DIR$/src/STD29006/Trabalhador/Servidor.java" />
         <option value="$PROJECT_DIR$/src/STD29006/Trabalhador/Trabalhador.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="130" />
-    <option name="width" value="1440" />
-    <option name="height" value="784" />
+    <option name="x" value="-4" />
+    <option name="width" value="1928" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -325,17 +326,21 @@
       <workItem from="1573305776695" duration="86000" />
       <workItem from="1573317334634" duration="35000" />
       <workItem from="1573407702971" duration="3071000" />
+      <workItem from="1573428543460" duration="722000" />
+      <workItem from="1573489928916" duration="4167000" />
+      <workItem from="1573569203189" duration="3386000" />
+      <workItem from="1573586823712" duration="5995000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87142000" />
+    <option name="totallyTimeSpent" value="101412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="0" width="1928" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24382384" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.39443535" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -344,7 +349,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36089385" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19217877" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -452,8 +457,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/STD29006/NotificacaoDistribuida.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+        <state relative-caret-position="240">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/STD29006/Trabalhador/Servidor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -462,8 +477,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/STD29006/TrabalhadorDistribuido.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="618">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/lang/Thread.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="256" column="16" selection-start-line="256" selection-start-column="16" selection-end-line="256" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/STD29006/Trabalhador/Cracker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="57" column="28" selection-start-line="57" selection-start-column="28" selection-end-line="57" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -472,32 +504,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/STD29006/Trabalhador/Trabalhador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+        <state relative-caret-position="480">
+          <caret line="75" column="58" selection-start-line="75" selection-start-column="58" selection-end-line="75" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2103#2104#0" expanded="true" />
-            <element signature="e#2135#2136#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/STD29006/Trabalhador/Servidor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="47" column="79" selection-start-line="47" selection-start-column="79" selection-end-line="47" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/STD29006/Trabalhador/Cracker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2417#2418#0" expanded="true" />
+            <element signature="e#2454#2455#0" expanded="true" />
+            <element signature="e#2489#2490#0" expanded="true" />
+            <element signature="e#2519#2520#0" expanded="true" />
+            <element signature="e#2575#2576#0" expanded="true" />
+            <element signature="e#2613#2614#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,0 +1,7 @@
+cama
+gato
+cachorro
+mesa
+filme
+aluno
+poesia

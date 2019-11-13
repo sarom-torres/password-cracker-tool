@@ -1,6 +1,7 @@
 package STD29006;
 
 import java.io.File;
+import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.UUID;
@@ -24,7 +25,7 @@ public interface TrabalhadorDistribuido extends Remote {
      * 1 => john -i=digits nome_do_arquivo.txt
      * 2 => john --wordlist:arquivo_dicionario.txt nome_do_arquivo.txt
      * */
-    public boolean receberTarefa(String estrategia, String cmd) throws RemoteException;
+    public boolean receberTarefa(String estrategia, String cmd) throws IOException;
 
     /**
      * Retorna um Enum Status que define se o trabalahdor está EM_ESPERA ou OCUPADO

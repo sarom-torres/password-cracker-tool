@@ -3,6 +3,7 @@ package STD29006.Master;
 import STD29006.NotificacaoDistribuida;
 import STD29006.TrabalhadorDistribuido;
 
+import java.io.UnsupportedEncodingException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
@@ -28,8 +29,16 @@ public class Notificacao implements NotificacaoDistribuida {
     }
 
     @Override
-    public void atividadePronta(StringBuilder resultado) throws RemoteException {
-        //TODO paliativo
-        System.out.println("O resultado foi "+ resultado);
+    public void atividadePronta(byte[] resultado) throws RemoteException {
+
+        String strResultado = null;
+        try {
+            strResultado = new String(resultado, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        //TODO print paliativo, O que fazer com o resultado?
+        System.out.println("O resultado foi "+ strResultado);
     }
 }
