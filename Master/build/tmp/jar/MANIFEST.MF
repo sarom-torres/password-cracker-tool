@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: STD29006.Master.Master
+

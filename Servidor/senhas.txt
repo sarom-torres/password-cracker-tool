@@ -1,8 +1,0 @@
-root:*:17647:0:99999:7:::
-daemon:*:17647:0:99999:7:::
-bin:*:17647:0:99999:7:::
-sys:*:17647:0:99999:7:::
-sshd:*:17647:0:99999:7:::
-mysql:!:17983:0:99999:7:::
-aluno:$6$vsBsTKe9$a7JUthduydWa.48saUk6AuxMpXVWQkkLvsM8WC8tqSMsrcc2n4885l5AFzeLHnpCkeKi/485W9l9UgS0FJ115/:17717:0:99999:7:::
-professor:$6$9EnyPnsOug46R$7jX575L2i4eIacC9aVBT8dyIttxiXeIY9Btqan4LKcXfc5WSKzJOsuJHaeTS9TLnzRP.CbbEwIKAXLH9iArKe0:17788:0:99999:7:::
