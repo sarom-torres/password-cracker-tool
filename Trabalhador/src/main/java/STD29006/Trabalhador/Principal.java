@@ -14,8 +14,8 @@ import java.util.logging.Logger;
 
 public class Principal {
 
-    private static String nomeServidor = "127.0.0.1";
-    private static int porta = 12345;
+    private static String nomeServidor;
+    private static int porta;
     private static final String NOMEOBJDIST1 = "Servidor1";
     private static final String NOMEOBJLIST = "Listener1";
     private static final String NOMEOBJOBS = "OBS1";
@@ -27,11 +27,11 @@ public class Principal {
     public static void main(String args []){
 
         try{
-            if (args[0] != null){
+            if(args.length == 0){
+                nomeServidor = "127.0.0.1";
+                porta = 1099;
+            }else{
                 nomeServidor = args[0];
-            }
-
-            if (args[1] != null){
                 porta = Integer.parseInt(args[1]);
             }
 

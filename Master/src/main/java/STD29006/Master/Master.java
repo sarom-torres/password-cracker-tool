@@ -8,7 +8,6 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,8 +15,8 @@ import java.util.logging.Logger;
 public class Master {
 
     //TODO não deixar o ip fixado
-    private static String nomeServidor = "127.0.0.1";
-    private static int porta = 12345;
+    private static String nomeServidor;
+    private static int porta;
     private static final String NOMEMASTER = "Master";
     private static Vector<TrabalhadorDistribuido> trabOnline = new Vector<>();
 
@@ -27,11 +26,12 @@ public class Master {
         //TODO arrumar portas e ip
 
         try{
-            if (args[0] != null){
-                nomeServidor = args[0];
-            }
 
-            if (args[1] != null){
+            if(args.length == 0){
+                nomeServidor = "127.0.0.1";
+                porta = 1099;
+            }else{
+                nomeServidor = args[0];
                 porta = Integer.parseInt(args[1]);
             }
 
