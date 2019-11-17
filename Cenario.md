@@ -1,6 +1,6 @@
 # Ferramenta distribuída para quebra de senha
 
-Neste projeto foi desenvolvida uma solução distribuída de quebra de senhas utilzando o software [John The Ripper](https://www.openwall.com/john).
+Neste projeto foi desenvolvida uma solução distribuída de quebra de senhas utilizando o software [John The Ripper](https://www.openwall.com/john).
 A solução é composta por uma máquina mestre que repassa a tarefa de quebra de senhas para 3 ou mais máquinas trabalhadoras, sendo que ao finalizarem a tarefa retornam os resultados obtidos para a máquina mestre.
 
 ### Definições de projeto
