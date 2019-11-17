@@ -50,7 +50,6 @@ Exemplo:
 java -jar std-1.0.jar 127.0.0.1 12345;
 ```
 
-
 Caso os parâmetros nomeServidor e porta não forem passados os seguintes valores serão utilizados como default:
 
 * nomeServidor : 127.0.0.1;
@@ -76,3 +75,39 @@ Caso os parâmetros nomeServidor e porta não forem passados os seguintes valore
 
 * nomeServidor : 127.0.0.1;
 * porta: 1099;
+
+### Ambiente de execução
+
+Para o funcionamento adequado do projeto as seguintes premissas deverão ser seguidas:
+
+* o código master deve ser executado antes do código do trabalhador;
+* o serviço de registry já está contido no código master, portanto não é necessario executá-lo em paralelo;
+* as máquinas que executam ambas aplicações (mestre e trabalhador) devem possuir sistema operacional Linux;
+* a máquina que executa a aplicação trabalhador deve possuir o software [John The Ripper](https://www.openwall.com/john), no qual pode ser instalado através do comando `sudo apt install john`;
+* a máquina que executa a aplicação deve possuir o seguinte conjunto de regras no arquivo `/etc/john/john.conf` ou `$HOME/.john/john.conf`:
+```
+[Incremental:All5]
+File = $JOHN/ascii.chr
+MinLen = 0
+MaxLen = 5
+CharCount = 95
+
+[Incremental:All6]
+File = $JOHN/ascii.chr
+MinLen = 6
+MaxLen = 6
+CharCount = 95
+ 
+[Incremental:All7]
+File = $JOHN/ascii.chr
+MinLen = 7
+MaxLen = 7
+CharCount = 95
+ 
+[Incremental:All8]
+File = $JOHN/ascii.chr
+MinLen = 8
+MaxLen = 8
+CharCount = 95
+```
+* as senhas a serem informadas no arquivo de senhas devem seguir o seguinte formato: `$id$salt$hash`;
