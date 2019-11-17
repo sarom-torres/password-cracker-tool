@@ -38,7 +38,7 @@ Utilizando o Gradle para gerar o jar do projeto será criado um arquivo .jar no 
 `std-1.0.jar`
 
 Os seguintes parâmetros deverão ser passados por linha de comando:
-* nomeServidor : IP da máquina onde está sendo executado o registry
+* nomeServidor : nome identificador para o registry (pode ser o IP da máquina onde o registry está sendo executado)
 * porta: a porta utilizada pelo registry
 
 A execução do código deverá ser realizada da seguinte forma:
@@ -60,7 +60,7 @@ Caso os parâmetros nomeServidor e porta não forem passados os seguintes valore
 Semelhante ao master, no subdiretório do projeto `build/libs` será criado um arquivo com o nome `trabalhador-1.0.jar` ao utilizar o Gradle para obter o jar.
 
 Os seguintes parâmetros deverão ser passados por linha de comando:
-* nomeServidor : IP da máquina onde está sendo executado o registry;
+* nomeServidor : nome identificador para o registry (pode ser o IP da máquina onde o registry está sendo executado)
 * porta: a porta utilizada pelo registry;
 
 A execução do código deverá ser realizada da seguinte forma:
