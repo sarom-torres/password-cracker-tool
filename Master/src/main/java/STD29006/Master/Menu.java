@@ -1,9 +1,6 @@
 package STD29006.Master;
 
-import STD29006.TrabalhadorDistribuido;
-
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 import java.util.Vector;
@@ -27,7 +24,7 @@ public class Menu extends Thread {
                 "2 - Enviar tarefa para trabalhador;\n" +
                 "3 - Encerrar processo de trabalhador;\n" +
                 "4 - Encerrar os processos de todos trabalhadores;\n"+
-                "0 - Sair;\n");
+                "CTRL+C - Sair;\n");
     }
     public void run(){
 
@@ -50,6 +47,10 @@ public class Menu extends Thread {
                     break;
 
                 case "2":
+                    if(gerenciador.qtTrabalhadores() == 0){
+                        System.out.println("Não há trabalhadores online");
+                        break;
+                    }
                     System.out.println("Entre com o arquivo de senhas:");
                     String arqSenhas = teclado.nextLine();
                     System.out.println("Entre com o arquivo dicionário:\n" +
@@ -87,7 +88,8 @@ public class Menu extends Thread {
                         System.out.println(gerenciador.trabalhadoresOnline());
                         Vector<Integer> indicesOcupados = gerenciador.qtOcupado();
                         for(Integer ind: indicesOcupados){
-                            UUID id = gerenciador.encerrarProcesso(ind.toString());
+                            Integer index = ind+1;
+                            UUID id = gerenciador.encerrarProcesso(index.toString());
                             if(id != uuidControle){
                                 System.out.println("O processo do trabalhador "+ id.toString()+" foi encerrado.");
                             }else{
@@ -98,10 +100,6 @@ public class Menu extends Thread {
                         e.printStackTrace();
                     }
                     break;
-                case "0":
-                    condicao = false;
-                    break;
-
                 default:
                     System.out.println("Comando inválido");
                     break;

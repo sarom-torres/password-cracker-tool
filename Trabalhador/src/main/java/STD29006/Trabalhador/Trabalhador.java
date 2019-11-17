@@ -23,7 +23,7 @@ public class Trabalhador implements TrabalhadorDistribuido {
         this.id = id;
         this.status = Status.EM_ESPERA;
         this.notificacao = notificacao;
-        this.processBuilder = new ProcessBuilder(); //TODO ver se isso é aqui
+        this.processBuilder = new ProcessBuilder();
     }
 
     @Override
@@ -45,7 +45,6 @@ public class Trabalhador implements TrabalhadorDistribuido {
             bwArquivo = new BufferedWriter(fwArquivo);
 
             String texto = new String(arqSerial, "UTF-8");
-            System.out.println(texto);
             bwArquivo.write(texto + '\n');
             bwArquivo.close();
             fwArquivo.close();
@@ -73,8 +72,6 @@ public class Trabalhador implements TrabalhadorDistribuido {
 
     @Override
     public boolean pararExecucao() throws RemoteException {
-        //TODO colocar tratamento para caso não esteja em execução
-        //Como interromper a thread para não gerar exceção
         process.destroy();
         setStatus(Status.EM_ESPERA);
         return true;
@@ -97,7 +94,7 @@ public class Trabalhador implements TrabalhadorDistribuido {
         this.process = process;
     }
 
-    private void setStatus(Status st){
+    public void setStatus(Status st){
         this.status = st;
     }
 

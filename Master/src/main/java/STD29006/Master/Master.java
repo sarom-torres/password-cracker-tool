@@ -14,7 +14,6 @@ import java.util.logging.Logger;
 
 public class Master {
 
-    //TODO não deixar o ip fixado
     private static String nomeServidor;
     private static int porta;
     private static final String NOMEMASTER = "Master";
@@ -23,8 +22,7 @@ public class Master {
 
     public static void main(String args []) {
 
-        //TODO arrumar portas e ip
-
+        //O nome do servidor e a porta default
         try{
 
             if(args.length == 0){

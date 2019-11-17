@@ -37,6 +37,13 @@ public class Notificacao implements NotificacaoDistribuida {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        System.out.println("O resultado foi "+ strResultado);
+
+        String strControle = "";
+        if(strResultado == strControle){
+            System.out.println("Atividade interrompida");
+        }else{
+            System.out.println("O resultado foi "+ strResultado);
+        }
+
     }
 }

@@ -22,13 +22,16 @@ public class Gerenciador {
         this.trabOnline = trabOnline;
         listaEstrategia = new ArrayList<>();
 
-        //TODO está correto fazer isso no construtor?
-        listaEstrategia.add("all5");
-        listaEstrategia.add("all6");
-        listaEstrategia.add("all7");
-        listaEstrategia.add("all8");
+        listaEstrategia.add("All5");
+        listaEstrategia.add("All6");
+        listaEstrategia.add("All7");
+        listaEstrategia.add("All8");
     }
 
+    /**
+     * Retorna uma String contendo todos os trabalhadores que estão online
+     * @throws RemoteException
+     * */
     public String trabalhadoresOnline() throws RemoteException {
         String dados = "";
         if(trabOnline.size() != 0){
@@ -42,6 +45,9 @@ public class Gerenciador {
         return dados;
     }
 
+    /**
+     * Retorna uma string contendo a quantidade de trabalhadores online
+     * */
     public String qtOnline() {
         String frase = "";
         int qt = trabOnline.size();
@@ -55,6 +61,17 @@ public class Gerenciador {
         return frase;
     }
 
+    /**
+     * Retorna um int com a quantia de trabalhadores online
+     * */
+    public int qtTrabalhadores(){
+        return trabOnline.size();
+    }
+
+    /**
+     * Retorna a quantia de trabalhadores com status OCUPADO
+     * @throws RemoteException
+     * */
     public Vector<Integer> qtOcupado() throws RemoteException {
         Vector <Integer> indicesOcupado = new Vector<>();
         for (TrabalhadorDistribuido trab: trabOnline) {

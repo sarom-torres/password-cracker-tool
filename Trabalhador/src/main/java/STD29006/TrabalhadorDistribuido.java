@@ -14,6 +14,7 @@ public interface TrabalhadorDistribuido extends Remote {
      * @param tipo deifne o tipo do arquivo transmitido
      * s : arquivo de senhas
      * d : arquivo de dicionário
+     * @throws RemoteException
      * */
     public boolean receberArquivo(byte[] arqSerial, String tipo) throws RemoteException;
 
@@ -24,13 +25,25 @@ public interface TrabalhadorDistribuido extends Remote {
      * @param cmd define qual comando será executado pelo john
      * 1 => john -i=digits nome_do_arquivo.txt
      * 2 => john --wordlist:arquivo_dicionario.txt nome_do_arquivo.txt
+     * @throws IOException
      * */
     public boolean receberTarefa(String estrategia, String cmd) throws IOException;
 
     /**
      * Retorna um Enum Status que define se o trabalahdor está EM_ESPERA ou OCUPADO
+     * @throws RemoteException
      * */
     public Status getStatus() throws RemoteException;
+
+    /**
+    * Encerra um processo o processo de quebra em execução
+    * @throws RemoteException
+    * */
     public boolean pararExecucao() throws RemoteException;
+
+    /**
+     * Retorna o UUID do Trabalhador
+     * @throws RemoteException
+     **/
     public UUID getNome() throws RemoteException;
 }

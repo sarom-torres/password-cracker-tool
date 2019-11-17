@@ -6,7 +6,6 @@ import STD29006.Status;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.rmi.RemoteException;
 
 public class Cracker extends Thread {
 
@@ -27,7 +26,6 @@ public class Cracker extends Thread {
         this.status = status;
         this.trabalhador = trabalhador;
 
-        //TODO está correto fazer esse else if aqui?
         System.out.println(status);
         if(cmd.equals("1")){
             this.comando = CMD_INCREMENTAL+estrategia+ARQ_INCREMENTAL;
@@ -40,7 +38,9 @@ public class Cracker extends Thread {
     }
 
     public void run(){
-        System.out.println("Entrou na thread");
+
+
+        System.out.println("Executando comando " + comando);
 
         ProcessBuilder processBuilder = trabalhador.getProcessBuilder();
         processBuilder.command("bash", "-c", comando);
@@ -55,19 +55,17 @@ public class Cracker extends Thread {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
+
             String line;
             while ((line = reader.readLine()) != null) {
+                System.out.println(line);
                 output.append(line + "\n");
             }
 
-            //TODO remover o print
-            System.out.println(output);
-
             byte [] byteOutput = output.toString().getBytes();
-            status = Status.EM_ESPERA;
+            trabalhador.setStatus(Status.EM_ESPERA);
             notificacao.atividadePronta(byteOutput);
-            System.out.println(status);
-
+            System.out.println("Termino da execução...");
 
         } catch (IOException e) {
             e.printStackTrace();
