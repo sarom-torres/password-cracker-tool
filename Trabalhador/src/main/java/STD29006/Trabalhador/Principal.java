@@ -16,10 +16,6 @@ public class Principal {
 
     private static String nomeServidor;
     private static int porta;
-    private static final String NOMEOBJDIST1 = "Servidor1";
-    private static final String NOMEOBJLIST = "Listener1";
-    private static final String NOMEOBJOBS = "OBS1";
-    private static final String NOMEWORKER = "WORKER_A";
     private static UUID uuidServidor = null;
     private static final String NOMEMASTER = "Master";
 
@@ -35,7 +31,7 @@ public class Principal {
                 porta = Integer.parseInt(args[1]);
             }
 
-            //Pegando o registro no servidor
+            //Pegando o registro
             Registry registro = LocateRegistry.getRegistry(nomeServidor, porta);
 
             //Cria UUID para identificar o servidor

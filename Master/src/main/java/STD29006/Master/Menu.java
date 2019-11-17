@@ -22,7 +22,7 @@ public class Menu extends Thread {
         uuidControle = new UUID(0,0);
     }
 
-    public void mostraMenu(){
+    private void mostraMenu(){
         System.out.println("\n1 - Trabalhadores online e seus status;\n" +
                 "2 - Enviar tarefa para trabalhador;\n" +
                 "3 - Encerrar processo de trabalhador;\n" +
