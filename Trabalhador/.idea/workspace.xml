@@ -2,43 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62eea81d-8909-443e-b65e-45815dba2b0b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Master/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Master/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/build/classes/java/main/STD29006/Master/Gerenciador.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/build/classes/java/main/STD29006/Master/Gerenciador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/build/classes/java/main/STD29006/Master/Master.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/build/classes/java/main/STD29006/Master/Master.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/build/classes/java/main/STD29006/Master/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/build/classes/java/main/STD29006/Master/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/build/classes/java/main/STD29006/Master/Notificacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/build/classes/java/main/STD29006/Master/Notificacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/build/libs/std-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/build/libs/std-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/senhas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/senhas.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/src/main/java/STD29006/Master/Gerenciador.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/src/main/java/STD29006/Master/Gerenciador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/src/main/java/STD29006/Master/Master.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/src/main/java/STD29006/Master/Master.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/src/main/java/STD29006/Master/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/src/main/java/STD29006/Master/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/src/main/java/STD29006/Master/Notificacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/src/main/java/STD29006/Master/Notificacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Master/src/main/java/STD29006/NotificacaoDistribuida.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Master/src/main/java/STD29006/NotificacaoDistribuida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/STD29006/Trabalhador/Cracker.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/STD29006/Trabalhador/Cracker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/STD29006/Trabalhador/Principal.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/STD29006/Trabalhador/Principal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/STD29006/Trabalhador/Trabalhador.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/STD29006/Trabalhador/Trabalhador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/trabalhador-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/trabalhador-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/senhas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/senhas.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/STD29006/NotificacaoDistribuida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/STD29006/NotificacaoDistribuida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/STD29006/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/STD29006/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/STD29006/Trabalhador/Cracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/STD29006/Trabalhador/Cracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/STD29006/Trabalhador/Trabalhador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/STD29006/Trabalhador/Trabalhador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/STD29006/TrabalhadorDistribuido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/STD29006/TrabalhadorDistribuido.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -352,7 +316,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="0" width="1928" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.123523094" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -363,7 +326,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32960895" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32960895" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
